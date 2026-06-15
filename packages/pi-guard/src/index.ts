@@ -5,7 +5,17 @@ import { writeAuditLog } from "./audit.js";
 
 let sessionId = Date.now().toString();
 
-export default function activate(pi: ExtensionAPI) {
+export async function activate(pi: ExtensionAPI) {
+    // Beautiful CLI Banner
+    console.log("\n\x1b[36m" + `
+   ___ _       __  __        _  _                            
+  / __| |_  _ / _|/ _|_  _  | || |__ _ _ _ _ _  ___ ______   
+ | _/ | | || |  _|  _| || | | __ / _\` | '_| ' \\/ -_|_-<_-<   
+ |_|  |_|\\_,_|_| |_|  \\_, | |_||_\\__,_|_| |_||_\\___/__/__/   
+                      |__/                                   
+` + "\x1b[0m");
+    console.log("\x1b[1m\x1b[35m✨ Fluffy Harness: Enterprise Suite Loaded ✨\x1b[0m\n");
+
     pi.on("session_start", () => {
         sessionId = Date.now().toString();
     });
