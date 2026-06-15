@@ -39,7 +39,7 @@ async function connectServer(server: McpServerConfig, pi: ExtensionAPI) {
 
     const mcpClient = new Client(
         { name: "pi-bridge", version: "1.0.0" },
-        { capabilities: { tools: {} } }
+        { capabilities: {} }
     );
 
     try {
@@ -49,21 +49,24 @@ async function connectServer(server: McpServerConfig, pi: ExtensionAPI) {
         for (const tool of tools.tools) {
             pi.registerTool({
                 name: `mcp_${server.name}_${tool.name}`,
+                label: `MCP: ${tool.name}`,
                 description: tool.description || `MCP Tool: ${tool.name}`,
                 parameters: convertJsonSchemaToTypeBox(tool.inputSchema),
                 execute: async (toolCallId, params, signal) => {
+                    const args = params as { [x: string]: unknown } | undefined;
                     const result = await mcpClient.callTool({
                         name: tool.name,
-                        arguments: params
+                        arguments: args
                     });
 
-                    const textOutputs = result.content
+                    const contentArray = (result.content || []) as any[];
+                    const textOutputs = contentArray
                         .filter((c: any) => c.type === "text")
                         .map((c: any) => c.text);
 
                     return {
                         content: [{ type: "text", text: textOutputs.join("\n") }],
-                        details: result
+                        details: result as any
                     };
                 }
             });
@@ -127,7 +130,7 @@ export default async function activate(pi: ExtensionAPI) {
 
             try {
                 await connectServer({ name: serverName, command, args: cmdArgs }, pi);
-                ctx.ui.notify(`Successfully registered MCP tools!`, "success");
+                ctx.ui.notify(`Successfully registered MCP tools!`, "info");
             } catch (error) {
                 ctx.ui.notify(`Failed to connect to MCP server: ${error}`, "error");
             }
