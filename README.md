@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="assets/logo.png" alt="Fluffy Harness Logo" width="200"/>
+</div>
+
 # Fluffy Harness: Pi Agent Improvement Suite
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
