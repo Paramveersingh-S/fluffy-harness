@@ -1,0 +1,23 @@
+{
+  "name": "pi-watchdog",
+  "version": "1.0.0",
+  "description": "Watchdog extension to warn users of stuck tools",
+  "main": "dist/index.js",
+  "type": "module",
+  "pi": {
+    "extensions": ["./dist/index.js"]
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-agent-core": ">=0.79.4",
+    "@earendil-works/pi-coding-agent": ">=0.79.4"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-agent-core": "^0.79.4",
+    "@earendil-works/pi-coding-agent": "^0.79.4",
+    "typescript": "^5.0.0"
+  },
+  "license": "MIT"
+}
