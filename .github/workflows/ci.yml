@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+        package: [pi-guard, pi-watchdog, pi-bridge]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: 'packages/${{ matrix.package }}/package-lock.json'
+
+    - name: Install dependencies
+      run: |
+        cd packages/${{ matrix.package }}
+        npm ci
+
+    - name: Ensure Pi compatibility
+      run: |
+        cd packages/${{ matrix.package }}
+        npm install @earendil-works/pi-agent-core@latest @earendil-works/pi-coding-agent@latest --no-save
+
+    - name: Build
+      run: |
+        cd packages/${{ matrix.package }}
+        npm run build --if-present
+
+    - name: Test
+      run: |
+        cd packages/${{ matrix.package }}
+        npm test --if-present

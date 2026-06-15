@@ -91,6 +91,9 @@ Instead of proxying tool calls blindly, `pi-bridge` utilizes `pi.registerTool()`
 
 **Best Practice:** Use it as an additional layer of defense and logging alongside proper execution environments (like Docker containers or Gondolin micro-VMs).
 
+### Privacy & Telemetry Guarantee
+**No Telemetry.** None of the packages in the Fluffy Harness suite contain any tracking, telemetry, or analytics. Your code, policies, and audit logs never leave your machine. `pi-guard`'s audit logs are strictly local and stored on your filesystem.
+
 ---
 
 ## 💻 Installation & Setup
