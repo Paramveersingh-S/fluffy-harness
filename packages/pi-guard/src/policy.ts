@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
 import * as os from "os";
-import { GuardPolicy, GuardRule, RuleAction } from "./types";
+import { GuardPolicy, GuardRule, RuleAction } from "./types.js";
 
 export const DEFAULT_POLICY: GuardPolicy = {
     rules: [

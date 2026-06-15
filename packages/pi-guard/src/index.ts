@@ -1,7 +1,7 @@
 import { ExtensionAPI, ToolCallEvent, ToolCallEventResult } from "@earendil-works/pi-coding-agent";
-import { loadPolicies } from "./policy";
-import { evaluateCall } from "./engine";
-import { writeAuditLog } from "./audit";
+import { loadPolicies } from "./policy.js";
+import { evaluateCall } from "./engine.js";
+import { writeAuditLog } from "./audit.js";
 
 let sessionId = Date.now().toString();
 

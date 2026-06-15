@@ -1,4 +1,4 @@
-import { redactArgs } from "../src/audit";
+import { redactArgs } from "../src/audit.js";
 import * as assert from "node:assert";
 import { test } from "node:test";
 

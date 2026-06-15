@@ -1,5 +1,5 @@
 import { minimatch } from "minimatch";
-import { GuardPolicy, GuardRule, RuleMatch } from "./types";
+import { GuardPolicy, GuardRule, RuleMatch } from "./types.js";
 
 export function matchRule(tool: string, args: unknown, rule: GuardRule): boolean {
     if (rule.tool !== "*" && rule.tool !== tool) {

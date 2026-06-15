@@ -1,3 +1,4 @@
+import { describe, it } from "mocha";
 import { expect } from "chai";
 import activate from "../src/index.js";
 import { convertJsonSchemaToTypeBox } from "../src/typebox-converter.js";
