@@ -1,0 +1,9 @@
+{
+  "rules": [
+    { "tool": "bash", "match": { "command": "rm -rf /*" }, "action": "deny" },
+    { "tool": "write", "match": { "path": "**/.env*" }, "action": "deny" },
+    { "tool": "bash", "match": { "commandIncludesNetwork": true, "domainNotIn": ["npmjs.org"] }, "action": "confirm" },
+    { "tool": "*", "match": {}, "action": "allow" }
+  ],
+  "defaultAction": "confirm"
+}

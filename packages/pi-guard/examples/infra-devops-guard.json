@@ -1,0 +1,10 @@
+{
+  "rules": [
+    { "tool": "bash", "match": { "command": "rm -rf /*" }, "action": "deny" },
+    { "tool": "bash", "match": { "command": "^terraform destroy" }, "action": "confirm" },
+    { "tool": "bash", "match": { "command": "aws * rm" }, "action": "confirm" },
+    { "tool": "write", "match": { "path": "**/secrets.yml" }, "action": "confirm" },
+    { "tool": "*", "match": {}, "action": "allow" }
+  ],
+  "defaultAction": "log"
+}
