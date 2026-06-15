@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "type": "module",
   "pi": {
-    "extensions": ["./dist/index.js"]
+    "extensions": [
+      "./dist/index.js"
+    ]
   },
   "scripts": {
     "build": "tsc"
@@ -17,7 +19,8 @@
   "devDependencies": {
     "@earendil-works/pi-agent-core": "^0.79.4",
     "@earendil-works/pi-coding-agent": "^0.79.4",
-    "typescript": "^5.0.0"
+    "@types/node": "^25.9.3",
+    "typescript": "^5.9.3"
   },
   "license": "MIT"
 }
