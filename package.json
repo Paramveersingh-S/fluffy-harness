@@ -1,0 +1,12 @@
+{
+  "name": "fluffy-harness",
+  "version": "1.0.0",
+  "private": true,
+  "pi": {
+    "extensions": [
+      "./packages/pi-guard/dist/src/index.js",
+      "./packages/pi-watchdog/dist/src/index.js",
+      "./packages/pi-bridge/dist/src/index.js"
+    ]
+  }
+}

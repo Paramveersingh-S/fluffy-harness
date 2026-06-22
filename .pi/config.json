@@ -1,7 +1,7 @@
 {
   "extensions": [
-    "./packages/pi-guard/dist/src/index.js",
-    "./packages/pi-watchdog/dist/src/index.js",
-    "./packages/pi-bridge/dist/src/index.js"
+    "C:/Users/HP/Desktop/project/fluffy-harness/packages/pi-guard/dist/src/index.js",
+    "C:/Users/HP/Desktop/project/fluffy-harness/packages/pi-watchdog/dist/src/index.js",
+    "C:/Users/HP/Desktop/project/fluffy-harness/packages/pi-bridge/dist/src/index.js"
   ]
 }

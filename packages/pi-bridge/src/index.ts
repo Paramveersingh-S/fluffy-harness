@@ -136,4 +136,16 @@ export default async function activate(pi: ExtensionAPI) {
             }
         }
     });
+
+    // 4. Gracefully close connections on session end to prevent zombie processes
+    pi.on("session_shutdown", async () => {
+        for (const [name, client] of activeClients.entries()) {
+            try {
+                await client.close();
+            } catch (error) {
+                console.error(`[pi-bridge] Error closing MCP server ${name}: ${error}`);
+            }
+        }
+        activeClients.clear();
+    });
 }

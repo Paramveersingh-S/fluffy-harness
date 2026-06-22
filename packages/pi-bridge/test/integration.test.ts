@@ -12,7 +12,8 @@ const mockPi: any = {
     },
     registerTool: (tool: any) => {
         mockPi.registeredTools[tool.name] = tool;
-    }
+    },
+    on: (event: string, handler: any) => {}
 };
 
 describe("Integration: pi-bridge", () => {

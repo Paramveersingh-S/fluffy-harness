@@ -1,6 +1,6 @@
 {
-  "name": "pi-watchdog",
-  "version": "1.0.0",
+  "name": "@tappertap/pi-watchdog",
+  "version": "1.0.1",
   "description": "Watchdog extension to warn users of stuck tools",
   "main": "dist/index.js",
   "type": "module",

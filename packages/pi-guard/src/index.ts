@@ -5,7 +5,7 @@ import { writeAuditLog } from "./audit.js";
 
 let sessionId = Date.now().toString();
 
-export async function activate(pi: ExtensionAPI) {
+export default async function activate(pi: ExtensionAPI) {
     // Beautiful CLI Banner
     console.log("\n\x1b[36m" + `
    ___ _       __  __        _  _                            

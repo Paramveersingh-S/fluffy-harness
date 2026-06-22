@@ -1,6 +1,6 @@
 {
-  "name": "pi-guard",
-  "version": "1.0.0",
+  "name": "@tappertap/pi-guard",
+  "version": "1.0.1",
   "description": "Granular Permission & Sandbox Policy Extension for Pi",
   "main": "dist/src/index.js",
   "type": "module",
